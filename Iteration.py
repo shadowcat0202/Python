@@ -122,6 +122,91 @@ for Square in range(square_num):
 turtle.exitonclick()
 '''
 
+'''
+original = input("문자열을 입력하세요")
+word = original.lower()
+vowels = 0
+consonants = 0
+
+if len(original) > 0 and original.isalpha():
+    for char in word:
+        if char in 'aeiou':
+            vowels += 1
+        else:
+            consonants += 1
+print("모음의 개수:%d 자음의 개수:%d" % (vowels, consonants))
+
+'''
+
+#중첩 for문 이해하기
+'''
+for i in range(5):
+    print(i, end=":")
+    for j in range(i+1):
+        print(j, end=" ")
+    print("")
+'''
+
+#소수구하기(2~2000)(중첩 루프, 조건식 사용)
+'''
+start_num = 0
+num = 0
+sum = 0
+lastdata = 0
+
+for num in range(2, 500+1):
+    for start_num in range(2, num+1):
+        if num % start_num == 0:    #기준수에서 비교수를 나누었을때 나머지가 0이고
+            break
+    if num == start_num:            #그 비교수가 기준수일때 소수이다
+        sum += start_num
+        print("소수:%d 합:%d" % (start_num, sum))
+        lastdata = start_num
+        print("마지막 소수의 값:", lastdata)
+        print("===================================")
+
+'''
+
+#반복문을 이용한 문자열 처리(모음 제거)
+'''
+vowels = "aeiouAEIOU"
+result_not_vowels = ["", 0]
+result_vowels = ["", 0]
+str = input("문자열을 입력하세요(영문자):")
+for letter in str:
+    if letter not in vowels:
+        result_not_vowels[0] += letter
+        result_not_vowels[1] += 1
+        result_vowels[0] += " "
+    else:
+        result_not_vowels[0] += " "
+        result_vowels[0] += letter
+        result_vowels[1] += 1
+
+print("자음만 출력:" + result_not_vowels[0] + " 개수:", result_not_vowels[1])
+print("모음만 출력:" + result_vowels[0] + " 개수:", result_vowels[1])
+'''
+#별찍기
+
+
+#format()함수 이해하기
+#{:[<,^,>]n} -> {:[좌측, 가운데, 우측]자릿수}
+'''
+print("정수:{}, String:{}, float:{}".format(10,"안녕하세요",10.1))
+print("실수:{2}, String:{1}, 정수:{0}".format(10,"안녕하세요",10.1)) #순서를 format에 맞춰서 넣을 수 있다
+
+print("숫자 '{:>5d}'".format(300))    #우측정렬
+print("숫자 '{:<5d}'".format(300))    #좌측정렬
+print("숫자 '{:^5d}'".format(300))    #좌측정렬
+
+'''
+
+#format()함수를 이용해 별 찍기
+'''
+for i in range(5, 0, -1):
+     print("{:<5}".format("*"*i))
+'''
+
 #[2]:while
 '''
 ===============================================
@@ -217,3 +302,31 @@ while cnt < 10:
             break
 print("기회가 전부 소진되었습니다. 게임을 종료합니다")
 '''
+
+'''
+from operator import eq #String 비교 메서드 참조
+total = 0
+price = ""
+while True:
+    price = input("상품 금액을 입력하세요('끝'을 입력하면 종료됨)")
+    if eq(price, "끝"):  #if price == "끝" 동일 코드
+        print("총 상품 가격:" + str(total) + "원!")
+        break
+    total += price
+'''
+
+#[3]:List
+str = "abcde"
+s_list = list(str)
+
+#reverse()는 type:List를 역순으로 바꿔주는 함수
+s_list.reverse()
+#join()은 역순으로 된 문자열을 연결해서 출력을 하고 있는 코드
+#s_list자체를 출력하려고하면 print에서 받지를 못한다
+#-> join()은 List타입을 파라메터로 받아 String타입으로 반환한다
+print("".join(s_list))
+
+#reversed()는 String을 파라메터로 받는다
+print("".join(reversed(str)))
+
+#왼쪽공백제거 String.lstrip(), 우측공백제거 String.rstrip(), 양쪽공백제거 String.strip()
