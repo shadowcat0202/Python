@@ -5,6 +5,10 @@ def test_name_int(name, num):
     print("test(" + name + ", " + str(num) + ")")
 
 def test_squared_num(num):
+    '''
+    :param num: 제곱 피연산
+    :return:    제곱값
+    '''
     print("test_squared_num(" + str(num) + ")")
     return num ** 2
 

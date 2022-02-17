@@ -31,5 +31,5 @@ num = 5
 print(str(num) + "**2=" + str(stub_function.test_squared_num(num)))
 
 print("\n=============큰 값 함수===================")
-comp_num = [2, 5]
+comp_num = [6, 5]
 print(str(comp_num) + "중에 큰 값은:" + str(stub_function.get_max(comp_num[0], comp_num[1])))
