@@ -16,3 +16,6 @@
 # st.string_format()
 # st.escape_letter()
 # del st
+
+import List as ls
+ls.List_basic()
